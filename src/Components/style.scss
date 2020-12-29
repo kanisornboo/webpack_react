@@ -1,0 +1,12 @@
+h1 {
+  color: magenta;
+
+  &:hover {
+    color: blue;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
