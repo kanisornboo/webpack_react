@@ -1,4 +1,9 @@
 import React from "react";
+import * as _ from "lodash";
+
+import { getMyName } from "utils/helpers";
+console.log("🚀 ~ file: App.js ~ line 5 ~ getMyName", getMyName);
+
 import "./style.scss";
 
 const items = [
@@ -76,11 +81,15 @@ const items = [
   },
 ];
 
+_.each(items, (val) => {
+  console.log("Output from Lodash _.each for Element " + val);
+});
+
 const App = ({ title = "Hello from App component" }) => (
   <div>
     <h1>{title}</h1>
     {items?.map((item) => (
-      <p>{item?.title}</p>
+      <p key={item.id}>{item?.title}</p>
     ))}
   </div>
 );

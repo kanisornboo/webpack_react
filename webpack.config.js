@@ -4,16 +4,23 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-const webpack_mode = process.env.npm_lifecycle_event; // thius pulls either 'dev' or 'build'
-console.log("🚀 ~ file: webpack.config.js ~ webpack_mode", webpack_mode);
+const webpack_mode = process.env.npm_lifecycle_event; // this pulls either 'dev' or 'build'
+
+const package = require("./package.json");
+
+// TODO:
+// const mode = process.env.ENV || "development";
 
 const config = {
-  entry: path.resolve(__dirname, "./src/index.js"),
+  devtool: "source-map",
+  entry: {
+    app: path.resolve(__dirname, "./src/index.js"),
+    vendor: Object.keys(package.dependencies),
+  },
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "bundle[hash].js",
+    filename: "[name].bundle[hash].js",
   },
-  devtool: "eval-cheap-source-map",
   mode: "development",
   module: {
     rules: [
@@ -25,6 +32,7 @@ const config = {
         test: /\.(js)$/,
         exclude: /node_modules/,
         use: ["babel-loader"],
+        exclude: [/\.spec\.js$/],
       },
       {
         test: /\.(woff|woff2)$/,
@@ -35,16 +43,33 @@ const config = {
     ],
   },
   resolve: {
+    alias: {
+      components: path.resolve(__dirname, "src/components/"),
+      utils: path.resolve(__dirname, "src/utils/"),
+    },
     extensions: ["*", ".js", ".jsx"],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({ template: "./index.html" }),
+    new HtmlWebpackPlugin({
+      favicon: false,
+      showErrors: true,
+      cache: true,
+      myPageHeader: "React App",
+      title: "React with Webpack application",
+      template: "./src/index.html",
+      hash: true,
+    }),
+    new webpack.ProgressPlugin(),
   ],
+  optimization: {
+    minimize: true,
+  },
   devServer: {
     port: 8080,
     contentBase: path.resolve(__dirname, "./dist"),
     hot: true,
+    historyApiFallback: true,
   },
 };
 
@@ -59,4 +84,14 @@ if (webpack_mode === "build") {
   );
 }
 
-module.exports = config;
+module.exports = (
+  env,
+  { mode, presets } = { mode: "production", presets: [] }
+) => {
+  console.log("NODE_ENV: ", env.NODE_ENV); // 'local'
+  console.log("Production: ", env.production); // true
+
+  return {
+    ...config,
+  };
+};
