@@ -6,7 +6,7 @@ https://stackoverflow.com/questions/39418555/syntaxerror-with-jest-and-react-and
 
 https://medium.com/groww-engineering/module-aliasing-in-webpack-f02fe1b91f94
 
-## Code splittlnh
+## Code splitting
 
 - Webpack Lazy Loading
 - React.lazy, https://reactjs.org/docs/code-splitting.html
