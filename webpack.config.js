@@ -65,6 +65,12 @@ const config = {
 			title: 'React with Webpack application',
 			template: './src/index.html',
 			hash: true,
+			minify: true,
+			removeComments: true,
+			meta: {
+				viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+				// Will generate: <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			},
 		}),
 		new webpack.ProgressPlugin(),
 	],
