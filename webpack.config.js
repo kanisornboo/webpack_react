@@ -41,6 +41,11 @@ const config = {
 					loader: 'url-loader',
 				},
 			},
+			{
+				test: /\.(png|jpg|svg)$/,
+				loader: 'url-loader',
+				exclude: /node_modules/,
+			},
 		],
 	},
 	resolve: {
@@ -85,10 +90,7 @@ if (webpack_mode === 'build') {
 	);
 }
 
-module.exports = (
-	env,
-	{ mode, presets } = { mode: 'production', presets: [] }
-) => {
+module.exports = (env, { mode, presets } = { mode: 'production', presets: [] }) => {
 	console.log('NODE_ENV: ', env.NODE_ENV); // 'local'
 	console.log('Production: ', env.production); // true
 

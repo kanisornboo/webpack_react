@@ -1,5 +1,5 @@
 h1 {
-  color: magenta;
+  color: red;
 
   &:hover {
     color: blue;
@@ -9,4 +9,6 @@ h1 {
 .column {
   display: flex;
   flex-direction: column;
+  // background-image: url('../assets/img.png');
+  background-image: url(https://assets.codepen.io/3/kiwi.svg);
 }

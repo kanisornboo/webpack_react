@@ -86,7 +86,7 @@ _.each(items, (val) => {
 });
 
 const App = ({ title = 'Hello from App component' }) => (
-	<div>
+	<div className="column">
 		<h1>{title}</h1>
 		{items?.map((item) => (
 			<p key={item.id}>{item?.title}</p>
