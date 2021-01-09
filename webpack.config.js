@@ -31,7 +31,6 @@ const config = {
 			},
 			{
 				test: /\.(js)$/,
-				exclude: /node_modules/,
 				use: ['babel-loader'],
 				exclude: [/\.spec\.js$/],
 			},
@@ -54,6 +53,7 @@ const config = {
 			utils: path.resolve(__dirname, 'src/utils/'),
 		},
 		extensions: ['*', '.js', '.jsx'],
+		fallback: { path: false },
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),

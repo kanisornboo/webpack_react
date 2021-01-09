@@ -10,6 +10,8 @@ https://www.youtube.com/watch?v=PT0znBWIVnU&list=PLblA84xge2_zwxh3XJqy6UVxS60Ydu
 
 ## Code splittlnh
 
+## Code splitting
+
 - Webpack Lazy Loading
 - React.lazy, https://reactjs.org/docs/code-splitting.html
 - loadable-components, https://github.com/gregberge/loadable-components

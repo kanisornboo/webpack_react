@@ -3,7 +3,6 @@ import * as _ from 'lodash';
 
 // import getMyName from 'utils/helpers';
 // console.log('🚀 ~ file: App.js ~ line 5 ~ getMyName', getMyName);
-
 import './style.scss';
 
 const items = [
@@ -88,6 +87,7 @@ _.each(items, (val) => {
 const App = ({ title = 'Hello from App component' }) => (
 	<div className="column">
 		<h1>{title}</h1>
+		<img src=".logo/png" alt="" />
 		{items?.map((item) => (
 			<p key={item.id}>{item?.title}</p>
 		))}

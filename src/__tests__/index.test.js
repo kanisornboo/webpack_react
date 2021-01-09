@@ -1,23 +1,23 @@
-import React from "react";
-import { screen, render, cleanup, fireEvent } from "@testing-library/react";
-import App from "../components/App";
+import React from 'react';
+import { screen, render, cleanup } from '@testing-library/react';
+import App from '../components/App';
 
-describe("App component", () => {
-  beforeAll(() => {
-    render(<App />);
-  });
+describe('App component', () => {
+	beforeAll(() => {
+		render(<App />);
+	});
 
-  it("should have the right message in the dom", () => {
-    const message = "Hello from App component";
+	it('should have the right message in the dom', () => {
+		const message = 'Hello from App component';
 
-    expect(screen.getByText(message)).toBeInTheDocument();
-  });
+		expect(screen.getByText(message)).toBeInTheDocument();
+	});
 
-  afterAll(cleanup);
+	afterAll(cleanup);
 });
 
-describe("Sample test", () => {
-  test("should be equal to 1", () => {
-    expect(1).toBe(1);
-  });
+describe('Sample test', () => {
+	test('should be equal to 1', () => {
+		expect(1).toBe(1);
+	});
 });
