@@ -91,6 +91,9 @@ const App = ({ title = 'Hello from App component' }) => (
 		{items?.map((item) => (
 			<p key={item.id}>{item?.title}</p>
 		))}
+		<div className="alert alert-primary" role="alert">
+			A simple primary alert—check it out!
+		</div>
 	</div>
 );
 
