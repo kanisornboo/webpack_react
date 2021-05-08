@@ -8,8 +8,6 @@ https://medium.com/groww-engineering/module-aliasing-in-webpack-f02fe1b91f94
 
 https://www.youtube.com/watch?v=PT0znBWIVnU&list=PLblA84xge2_zwxh3XJqy6UVxS60YdusY8&index=9
 
-## Code splittlnh
-
 ## Code splitting
 
 - Webpack Lazy Loading
